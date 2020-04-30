@@ -1,17 +1,44 @@
 import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+
 import PhotoAlbum from "./pages/PhotoAlbum";
 import NavBar from "./components/NavBar";
-import Home from "./components/Home";
+import Home from "./pages/Home";
+import AboutMe from "./pages/AboutMe";
 
-export class App extends Component {
-  render() {
-    return (
+function RouteConfig(props) {
+  return (
+    <Router>
       <Fragment>
         <NavBar />
-        <Home />
-        {/* <PhotoAlbum pictures={PICTURES} /> */}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about-me">
+            <AboutMe />
+          </Route>
+          <Route path="/photo-album">
+            <PhotoAlbum pictures={props.props.pictures} />
+          </Route>
+        </Switch>
       </Fragment>
-    );
+    </Router>
+  );
+}
+
+export class App extends Component {
+  state = {
+    pictures: [],
+  };
+
+  constructor() {
+    super();
+    this.state.pictures = PICTURES;
+  }
+
+  render() {
+    return <RouteConfig props={this.state} />;
   }
 }
 

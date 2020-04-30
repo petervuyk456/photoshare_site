@@ -14,6 +14,7 @@ export class PhotoAlbum extends Component {
 
   render() {
     let album;
+    console.log(this.props);
     if (this.props.pictures.length === 0) {
       album = <p1>There are no pictures in the photo album</p1>;
     } else {
