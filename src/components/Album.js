@@ -42,7 +42,7 @@ class Card extends Component {
   }
 }
 
-export class CardRow extends Component {
+class CardRow extends Component {
   constructor(props) {
     super(props);
   }
@@ -58,7 +58,7 @@ export class CardRow extends Component {
   }
 }
 
-function Album(props) {
+export function Album(props) {
   return (
     <div className="album py-5 bg-light">
       <div className="container">
