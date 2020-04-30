@@ -9,7 +9,7 @@ export class App extends Component {
       <Fragment>
         <NavBar />
         <Home />
-      {/* <PhotoAlbum pictures={PICTURES} /> */}
+        {/* <PhotoAlbum pictures={PICTURES} /> */}
       </Fragment>
     );
   }
