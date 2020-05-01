@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// Adds jumbotron to home page
 export class Jumbo extends Component {
   render() {
     return (
