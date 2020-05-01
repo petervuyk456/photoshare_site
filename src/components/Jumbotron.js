@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// Displays image on jumbotron
 export default class Home extends Component {
   render() {
     return (
