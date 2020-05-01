@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 
 import PhotoAlbum from "./pages/PhotoAlbum";
 import NavBar from "./components/NavBar";
-import Jumbotron from "./components/Jumbotron";
+import Home from "./pages/Home";
 import AboutMe from "./pages/AboutMe";
 
 function RouteConfig(props) {
@@ -13,7 +13,7 @@ function RouteConfig(props) {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Jumbotron />
+            <Home />
           </Route>
           <Route path="/about-me">
             <AboutMe />
