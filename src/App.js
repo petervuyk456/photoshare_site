@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState } from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 
 import PhotoAlbum from "./pages/PhotoAlbum";
@@ -21,7 +21,7 @@ function RouteConfig(props) {
             <AboutMe />
           </Route>
           <Route path="/photo-album">
-            <PhotoAlbum pictures={props.props.pictures} />
+            <PhotoAlbum pictures={props.pictures} />
           </Route>
         </Switch>
       </Fragment>
@@ -29,20 +29,9 @@ function RouteConfig(props) {
   );
 }
 
-export class App extends Component {
-  state = {
-    pictures: [],
-  };
-
-  constructor() {
-    super();
-    this.state.pictures = PICTURES;
-  }
-
-  render() {
-    console.log(this.state);
-    return <RouteConfig props={this.state} />;
-  }
+export function App() {
+  const [pictures, setPictures] = useState(PICTURES);
+  return <RouteConfig pictures={pictures} />;
 }
 
 export default App;

@@ -1,41 +1,27 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 import Album from "../components/Album";
 import splitBy from "../../scripts/splitBy";
 
-export class PhotoAlbum extends Component {
-  state = {
-    cardsPerRow: 3,
-  };
+export function PhotoAlbum(props) {
+  const [rowCount, setRowCount] = useState(3);
+  const [cards, setCards] = useState(props.pictures);
 
-  constructor(props) {
-    super(props);
+  let album = <p1>No pictures in gallery.</p1>;
+
+  if (cards.length > 0) {
+    album = <Album pictures={splitBy(rowCount, props.pictures)} />;
   }
 
-  render() {
-    let album;
-    if (this.props.pictures.length === 0) {
-      album = <p1>There are no pictures in the photo album</p1>;
-    } else {
-      album = (
-        <Album
-          pictures={splitBy(this.state.cardsPerRow, this.props.pictures)}
-        />
-      );
-    }
-
-    return (
-      <Fragment>
-        <h1 className="display-6 text-center">
-          Photo Album
-          <span className="badge badge-pill badge-dark">
-            {this.state.numCards}
-          </span>
-        </h1>
-        {album}
-      </Fragment>
-    );
-  }
+  return (
+    <Fragment>
+      <h1 className="display-6 text-center">
+        Photo Album
+        <span className="badge badge-pill badge-dark">{cards.length}</span>
+      </h1>
+      {album}
+    </Fragment>
+  );
 }
 
 export default PhotoAlbum;

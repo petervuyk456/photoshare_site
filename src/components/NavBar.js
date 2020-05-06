@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
         imGallery
       </Link>
@@ -18,18 +18,40 @@ function NavBar() {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div className="navbar-nav">
-          <Link className="nav-item nav-link" to="/">
-            Home <span className="sr-only">(current)</span>
-          </Link>
-          <Link className="nav-item nav-link" to="/about-me">
-            About Me
-          </Link>
-          <Link className="nav-item nav-link" to="/photo-album">
-            Photo Album
-          </Link>
-        </div>
+
+      <div className="collapse navbar-collapse" id="navbarColor02">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <Link className="nav-item nav-link" to="/">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link" to="/about-me">
+              About Me
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link" to="/photo-album">
+              Photo Album
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link" to="/">
+              Login
+            </Link>
+          </li>
+        </ul>
+        <form className="form-inline my-2 my-lg-0">
+          <input
+            className="form-control mr-sm-2"
+            type="text"
+            placeholder="Search"
+          ></input>
+          <button className="btn btn-secondary my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
       </div>
     </nav>
   );
